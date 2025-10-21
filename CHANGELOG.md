@@ -36,12 +36,14 @@ All notable changes to this project will be documented in this file.
 - Automated sync and build scripts
 - MIT open source license
 - Comprehensive contributing guidelines
+- **Edge Add-ons Store release** - Available for download
 
 ### Changed
 - Updated all GitHub links to use correct username (zuyucool)
 - Marked community links as "Coming Soon" to avoid broken links
 - Optimized README structure with clear status indicators
 - Enhanced documentation with bilingual support
+- **Added Edge Add-ons Store badges and installation instructions**
 
 ### Fixed
 - Resolved HTTPS push issues with Personal Access Token

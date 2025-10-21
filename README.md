@@ -1,7 +1,8 @@
 # ScreenCatch - Professional Screen Recorder
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v3.0.2-blue)](https://chrome.google.com/webstore)
+[![Edge Add-ons](https://img.shields.io/badge/Edge%20Add--ons-v3.0.2-blue)](https://microsoftedge.microsoft.com/addons)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v3.0.2-green)](https://chrome.google.com/webstore)
 [![GitHub stars](https://img.shields.io/github/stars/zuyucool/screencatch)](https://github.com/zuyucool/screencatch)
 [![GitHub issues](https://img.shields.io/github/issues/zuyucool/screencatch)](https://github.com/zuyucool/screencatch/issues)
 
@@ -27,7 +28,10 @@
 
 ### 🚀 Quick Start
 
-1. **Install from Chrome Web Store**
+1. **Install from Browser Store**
+   - **Edge Add-ons**: [Install ScreenCatch](https://microsoftedge.microsoft.com/addons) ✅ Available
+   - **Chrome Web Store**: [Install ScreenCatch](https://chrome.google.com/webstore) - *Coming Soon*
+   
    ```bash
    # Or load unpacked extension in developer mode
    ```
@@ -95,7 +99,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🚀 快速开始
 
-1. **从Chrome应用商店安装**
+1. **从浏览器商店安装**
+   - **Edge 加载项**: [安装 ScreenCatch](https://microsoftedge.microsoft.com/addons) ✅ 可用
+   - **Chrome 应用商店**: [安装 ScreenCatch](https://chrome.google.com/webstore) - *即将推出*
+   
    ```bash
    # 或在开发者模式下加载解压的扩展
    ```
@@ -160,6 +167,7 @@ npm run build
 ## 🔗 Links
 
 - **GitHub Repository**: [zuyucool/screencatch](https://github.com/zuyucool/screencatch)
+- **Edge Add-ons**: [Install ScreenCatch](https://microsoftedge.microsoft.com/addons) ✅ Available
 - **Chrome Web Store**: [Install ScreenCatch](https://chrome.google.com/webstore) - *Coming Soon*
 - **Community**: [Join our bilingual community](#community) | [加入我们的双语社区](#社区)
 - **Documentation**: [Canvas Optimization Guide](docs/canvas-optimization.md) - ✅ Available
