@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">ScreenCatch - Screenshot Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f3f4f6;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app-container {
+            width: 100vw;
+            background: #fbbf24;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 主画布区域 */
+        .main-content {
+            flex: 1;
+            display: flex;
+            padding: 16px;
+            gap: 16px;
+        }
+
+        .canvas-area {
+            flex: 1;
+            background: #d1d5db;
+            border-radius: 8px;
+            border: 2px solid #9ca3af;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .canvas-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .canvas-placeholder h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* 右侧调色板 */
+        .color-palette {
+            width: 80px;
+            background: #fbbf24;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .palette-icon {
+            width: 24px;
+            height: 24px;
+            background: #000;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+            font-size: 12px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .color-option {
+            width: 16px;
+            height: 16px;
+            background: #000;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        /* 当前颜色显示 */
+        .current-color-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .color-preview {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            border: 2px solid #e5e7eb;
+            background: #696969;
+        }
+
+        .color-hex {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 12px;
+            color: #374151;
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            width: 60px;
+        }
+
+        /* 底部工具栏 */
+        .bottom-toolbar {
+            background: #fbbf24;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #f59e0b;
+        }
+
+        .tools-section {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tool-button {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .tool-button:hover {
+            background: #f59e0b;
+        }
+
+        .tool-button.active {
+            background: #d97706;
+            color: white;
+        }
+
+        .actions-section {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-button {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .action-button:hover {
+            background: #f59e0b;
+        }
+
+        /* 工具图标样式 */
+        .tool-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-content">
+            <!-- 主画布区域 -->
+            <div class="canvas-area">
+                <div class="canvas-placeholder" id="placeholder">
+                            <h3 id="screenshot-content" data-i18n-text="screenshotContent">📸 Screenshot Content</h3>
+        <p id="region-info" data-i18n-text="regionInfo">Region: Loading...</p>
+        <p id="time-info" data-i18n-text="timeInfo">Time: Loading...</p>
+        <p id="edit-instructions" data-i18n-text="editInstructions">Use the bottom toolbar to edit</p>
+                </div>
+                <img class="screenshot-image" id="screenshot-image" data-i18n-alt="imageAlt" alt="Screenshot" />
+            </div>
+
+            <!-- 右侧调色板 -->
+            <div class="color-palette">
+                <div class="palette-icon">🎨</div>
+                
+                <!-- 当前颜色显示 -->
+                <div class="current-color-display">
+                    <div class="color-preview" id="color-preview"></div>
+                    <input type="text" class="color-hex" id="color-hex" value="#696969" />
+                </div>
+                
+                <div class="color-grid" id="color-grid">
+                    <!-- 颜色选项将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部工具栏 -->
+        <div class="bottom-toolbar">
+            <div class="tools-section">
+                <!-- 矩形工具 -->
+                <button class="tool-button" data-tool="rectangle" data-i18n-title="rectangleTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M4,6V18H20V6H4M6,8H18V16H6V8Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 圆形工具 -->
+                <button class="tool-button" data-tool="circle" data-i18n-title="circleTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 箭头工具 -->
+                <button class="tool-button" data-tool="arrow" data-i18n-title="arrowTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M4,15V9H12V4.16L19.84,12L12,19.84V15H4Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 画笔工具 -->
+                <button class="tool-button" data-tool="pen" data-i18n-title="brushTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 文字工具 -->
+                <button class="tool-button" data-tool="text" data-i18n-title="textTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.68,6.43C15.25,6.87 15.25,7.74 15.68,8.21C16.11,8.68 16.97,9.63 17.26,10.43C17.79,11.74 18.25,12.61 18.7,13.39C19.66,13.65 18.5,18 18.5,18C17.34,17.65 16.21,17.65 15.34,18.13C14.47,18.61 14.47,19.74 15.34,20.22C16.21,20.7 17.34,20.7 18.5,20.35C19.66,20.7 20.79,20.7 21.66,20.22C22.53,19.74 22.53,18.61 21.66,18.13C20.79,17.65 19.66,17.65 18.5,18L19.66,13.65L18.5,4Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 撤销按钮 -->
+                <button class="tool-button" data-tool="undo" data-i18n-title="undoTool">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M12.5,8C9.85,8 7.45,9 5.6,10.6L2,7V16H11L7.38,12.38C8.77,11.22 10.54,10.5 12.5,10.5C16.04,10.5 19.05,12.81 20.1,16L22.47,15.22C21.08,11.03 17.15,8 12.5,8Z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="actions-section">
+                <!-- 保存按钮 -->
+                <button class="action-button" id="save-btn" data-i18n-title="saveImage">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"/>
+                    </svg>
+                </button>
+                
+                <!-- 删除按钮 -->
+                <button class="tool-button" id="delete-btn" data-i18n-title="delete">
+                    <svg class="tool-icon" viewBox="0 0 24 24">
+                        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🌍 HTML内联脚本测试：页面开始加载...');
+        console.log('🌍 当前页面URL:', window.location.href);
+        console.log('🌍 扩展ID:', chrome.runtime.id);
+    </script>
+    <script src="locales/i18n.js"></script>
+    <script src="screenshot-editor-new-extension.js"></script>
+</body>
+</html>

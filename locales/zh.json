@@ -1,0 +1,112 @@
+{
+  "ui": {
+    "buttons": {
+      "startRecording": "开始录制",
+      "stopRecording": "停止录制",
+      "confirm": "确认",
+      "download": "下载",
+      "startButton": "开始"
+    },
+    "messages": {
+      "recordingStarted": "录制已开始...",
+      "recordingFailed": "录制失败: {error}",
+      "downloadFailed": "下载失败: {error}",
+      "exportComplete": "导出完成",
+      "recordingComplete": "录制完成，开始保存数据...",
+      "areaSelectionComplete": "区域选择完成！请点击扩展图标开始录制。",
+      "pageNotSupported": "当前页面不支持录制，请在其他网页上使用",
+      "recordingStartedWithMode": "开始{mode}..."
+    },
+    "options": {
+      "tabRecording": "标签页录制",
+      "regionRecording": "区域录制",
+      "fullScreen": "全屏录制",
+      "regionScreenshot": "区域截图"
+    },
+    "titles": {
+      "exportPage": "ScreenCatch - 导出完成",
+      "screenshotEditor": "ScreenCatch - 截图编辑"
+    },
+    "screenshot": {
+      "content": "📸 截图内容",
+      "regionInfo": "区域: 加载中...",
+      "timeInfo": "时间: 加载中...",
+      "editInstructions": "使用底部工具栏进行编辑",
+      "altText": "截图",
+      "tools": {
+        "rectangle": "矩形工具",
+        "circle": "圆形工具",
+        "line": "线条工具",
+        "text": "文字工具",
+        "arrow": "箭头工具",
+        "brush": "画笔工具",
+        "eraser": "橡皮擦工具",
+        "undo": "撤销",
+        "redo": "重做",
+        "clear": "清除全部",
+        "download": "下载"
+             }
+     },
+     "content": {
+       "alerts": {
+         "recordingSaveFailed": "录制保存失败: {error}\n\n请检查浏览器存储空间或重新录制。",
+         "recordingFailed": "录制失败: {error}",
+         "recordingProcessFailed": "录制处理失败: {error}",
+         "downloadFailed": "下载失败: {error}",
+         "confirmDeleteRecording": "确定要删除当前录制吗？",
+         "areaRecordingFailed": "区域录制失败: {error}"
+       },
+       "instructions": {
+                 "screenshotAreaSelect": "🎯 拖拽选择要截图的区域",
+        "screenshotPageInfo": "请使用区域选择工具选择要截图的区域",
+        "recordingAreaSelect": "🎯 拖拽选择要录制的区域"
+       },
+       "ui": {
+         "colorPalette": "🎨 调色板",
+         "currentColor": "当前颜色:",
+         "opacity": "透明度:",
+         "customColor": "🎨 自定义颜色",
+         "screenshotPreview": "📸 截图预览",
+                   "confirmAndStart": "✅ 确认并开始录制",
+          "cancel": "❌ 取消",
+          "fullscreenRecording": "🖥️ 全屏录制",
+          "selectedArea": "🎯 选择的区域:",
+          "position": "位置:",
+          "size": "尺寸:",
+          "areaRecording": "🎯 区域录制中",
+          "textInputPlaceholder": "输入文字...",
+          "deleteText": "🗑️ 删除",
+          "confirm": "确定",
+                  "deleteTextTitle": "📝 删除文字: \"{text}\""
+      },
+      "tools": {
+        "rectangleTool": "矩形工具",
+        "circleTool": "圆形工具",
+        "arrowTool": "箭头工具",
+        "brushTool": "画笔工具",
+        "textTool": "文字工具",
+        "undoTool": "撤销 (Ctrl+Z)"
+      },
+      "actions": {
+        "saveImage": "保存图片",
+        "delete": "删除"
+      },
+      "screenshot": {
+        "content": "📸 截图内容",
+        "regionInfo": "区域: 加载中...",
+        "timeInfo": "时间: 加载中...",
+        "editInstructions": "使用底部工具栏进行编辑",
+        "imageAlt": "截图",
+         "rectangle": "⬜ 矩形",
+         "circle": "⭕ 圆形",
+         "arrow": "➡️ 箭头",
+         "brush": "✏️ 画笔",
+         "text": "📝 文字",
+         "downloadPNG": "💾 下载PNG",
+         "close": "❌ 关闭",
+         "undo": "↶ 撤销",
+         "undoGraphics": "↶ 撤销图形 ({count})"
+       }
+     }
+   }
+ }

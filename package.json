@@ -1,0 +1,45 @@
+{
+  "name": "screencatch",
+  "version": "3.0.2",
+  "description": "Professional screen recording and screenshot tool with Canvas optimization technology",
+  "main": "src/service_worker.js",
+  "scripts": {
+    "build": "echo 'Building open source extension package...'",
+    "dev": "echo 'Development mode: Please manually load extension in browser'",
+    "test": "echo 'Running tests...'",
+    "lint": "echo 'Code linting...'",
+    "clean": "echo 'Cleaning build files...'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "screen-recording",
+    "canvas-optimization",
+    "webcodecs",
+    "browser-extension",
+    "screenshot",
+    "video-editing",
+    "bilingual-community",
+    "open-source"
+  ],
+  "author": "ScreenCatch Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/screencatch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/screencatch/issues"
+  },
+  "homepage": "https://github.com/yourusername/screencatch#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "web-ext": "^7.8.0"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "Chrome >= 88",
+    "Edge >= 88"
+  ]
+}

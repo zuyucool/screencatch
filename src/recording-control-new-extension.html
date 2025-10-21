@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ScreenCatch - Recording Control</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #fbbf24; /* bg-amber-400 */
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 320px; /* w-80 */
+        height: 384px; /* h-96 */
+        background: #fbbf24; /* bg-amber-400 */
+        padding: 32px; /* p-8 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px; /* space-y-8 */
+      }
+
+      /* 图标区域 */
+      .icon-container {
+        width: 64px; /* w-16 */
+        height: 64px; /* h-16 */
+        background: #000000; /* bg-black */
+        border-radius: 50%; /* rounded-full */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-container svg {
+        width: 32px; /* w-8 */
+        height: 32px; /* h-8 */
+        color: #ffffff; /* text-white */
+      }
+
+      /* 状态显示区域 */
+      .status-display {
+        background: #000000; /* bg-black */
+        color: #ffffff; /* text-white */
+        padding: 12px 24px; /* px-6 py-3 */
+        border-radius: 8px; /* rounded-lg */
+        font-size: 24px; /* text-2xl */
+        font-family: 'Courier New', monospace; /* font-mono */
+        font-weight: bold; /* font-bold */
+        text-align: center;
+        min-width: 120px;
+      }
+
+      /* 控制按钮区域 */
+      .control-buttons {
+        display: flex;
+        gap: 16px; /* space-x-4 */
+        align-items: center;
+      }
+
+      .control-btn {
+        width: 48px; /* w-12 */
+        height: 48px; /* h-12 */
+        background: #000000; /* bg-black */
+        border-radius: 50%; /* rounded-full */
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s; /* transition-colors */
+      }
+
+      .control-btn:hover {
+        background: #374151; /* hover:bg-gray-800 */
+      }
+
+      .control-btn svg {
+        width: 24px; /* w-6 */
+        height: 24px; /* h-6 */
+        color: #ffffff; /* text-white */
+      }
+
+      .control-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* 录制状态样式 */
+      .recording .status-display {
+        background: #dc2626; /* bg-red-600 */
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+
+      /* 暂停状态样式 */
+      .paused .status-display {
+        background: #ca8a04; /* bg-yellow-600 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="recordingContainer">
+      <!-- 图标区域 -->
+      <div class="icon-container">
+        <svg fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+
+      <!-- 状态显示区域 -->
+      <div class="status-display" id="statusDisplay">
+        Ready
+      </div>
+
+      <!-- 控制按钮区域 -->
+      <div class="control-buttons">
+        <button class="control-btn" id="downloadBtn" title="Download">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn" id="playPauseBtn" title="Play/Pause">
+          <svg fill="currentColor" viewBox="0 0 24 24" id="playPauseIcon">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn" id="resetBtn" title="Reset">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="recording-control-new-extension.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+{
+  "ui": {
+    "buttons": {
+      "startRecording": "Start Recording",
+      "stopRecording": "Stop Recording",
+      "confirm": "Confirm",
+      "download": "Download",
+      "startButton": "Start"
+    },
+    "messages": {
+      "recordingStarted": "Recording started...",
+      "recordingFailed": "Recording failed: {error}",
+      "downloadFailed": "Download failed: {error}",
+      "exportComplete": "Export Complete",
+      "recordingComplete": "Recording completed, saving data...",
+      "areaSelectionComplete": "Area selection complete! Please click the extension icon to start recording.",
+      "pageNotSupported": "Current page does not support recording, please use on other web pages",
+      "recordingStartedWithMode": "Starting {mode}..."
+    },
+    "options": {
+      "tabRecording": "Tab Recording",
+      "regionRecording": "Region Recording",
+      "fullScreen": "Full Screen",
+      "regionScreenshot": "Region Screenshot"
+    },
+    "titles": {
+      "exportPage": "ScreenCatch - Export Complete",
+      "screenshotEditor": "ScreenCatch - Screenshot Editor"
+    },
+    "screenshot": {
+      "content": "📸 Screenshot Content",
+      "regionInfo": "Region: Loading...",
+      "timeInfo": "Time: Loading...",
+      "editInstructions": "Use the bottom toolbar to edit",
+      "altText": "Screenshot",
+      "tools": {
+        "rectangle": "Rectangle Tool",
+        "circle": "Circle Tool",
+        "line": "Line Tool",
+        "text": "Text Tool",
+        "arrow": "Arrow Tool",
+        "brush": "Brush Tool",
+        "eraser": "Eraser Tool",
+        "undo": "Undo",
+        "redo": "Redo",
+        "clear": "Clear All",
+        "download": "Download"
+             }
+     },
+     "content": {
+       "alerts": {
+         "recordingSaveFailed": "Recording save failed: {error}\n\nPlease check browser storage space or re-record.",
+         "recordingFailed": "Recording failed: {error}",
+         "recordingProcessFailed": "Recording process failed: {error}",
+         "downloadFailed": "Download failed: {error}",
+         "confirmDeleteRecording": "Are you sure you want to delete the current recording?",
+         "areaRecordingFailed": "Area recording failed: {error}"
+       },
+       "instructions": {
+                 "screenshotAreaSelect": "🎯 Drag to select the area to screenshot",
+        "screenshotPageInfo": "Please use the area selection tool to select the area to screenshot",
+        "recordingAreaSelect": "🎯 Drag to select the area to record"
+       },
+       "ui": {
+         "colorPalette": "🎨 Color Palette",
+         "currentColor": "Current Color:",
+         "opacity": "Opacity:",
+         "customColor": "🎨 Custom Color",
+         "screenshotPreview": "📸 Screenshot Preview",
+                   "confirmAndStart": "✅ Confirm and Start Recording",
+          "cancel": "❌ Cancel",
+          "fullscreenRecording": "🖥️ Fullscreen Recording",
+          "selectedArea": "🎯 Selected Area:",
+          "position": "Position:",
+          "size": "Size:",
+          "areaRecording": "🎯 Area Recording in Progress",
+          "textInputPlaceholder": "Enter text...",
+          "deleteText": "🗑️ Delete",
+          "confirm": "Confirm",
+                  "deleteTextTitle": "📝 Delete Text: \"{text}\""
+      },
+      "tools": {
+        "rectangleTool": "Rectangle Tool",
+        "circleTool": "Circle Tool",
+        "arrowTool": "Arrow Tool",
+        "brushTool": "Brush Tool",
+        "textTool": "Text Tool",
+        "undoTool": "Undo (Ctrl+Z)"
+      },
+      "actions": {
+        "saveImage": "Save Image",
+        "delete": "Delete"
+      },
+      "screenshot": {
+        "content": "📸 Screenshot Content",
+        "regionInfo": "Region: Loading...",
+        "timeInfo": "Time: Loading...",
+        "editInstructions": "Use the bottom toolbar to edit",
+        "imageAlt": "Screenshot",
+         "rectangle": "⬜ Rectangle",
+         "circle": "⭕ Circle",
+         "arrow": "➡️ Arrow",
+         "brush": "✏️ Brush",
+         "text": "📝 Text",
+         "downloadPNG": "💾 Download PNG",
+         "close": "❌ Close",
+         "undo": "↶ Undo",
+         "undoGraphics": "↶ Undo Graphics ({count})"
+       }
+     }
+   }
+ }

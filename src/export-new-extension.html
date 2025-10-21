@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title id="pageTitle">ScreenCatch - Export Complete</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #fbbf24; /* bg-amber-400 */
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+      }
+
+      /* 左侧预览区域 */
+      .preview-section {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      .preview-container {
+        background: #d1d5db; /* bg-gray-300 */
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem; /* rounded-lg */
+        border: 2px solid #9ca3af; /* border-2 border-gray-400 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .preview-placeholder {
+        text-align: center;
+        color: #4b5563; /* text-gray-600 */
+      }
+
+      .preview-icon {
+        width: 6rem; /* w-24 */
+        height: 6rem; /* h-24 */
+        background: #9ca3af; /* bg-gray-400 */
+        border-radius: 0.5rem; /* rounded-lg */
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .preview-icon svg {
+        width: 3rem; /* w-12 */
+        height: 3rem; /* h-12 */
+        color: #4b5563; /* text-gray-600 */
+      }
+
+      .preview-placeholder p {
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 500;
+      }
+
+      /* 右侧信息面板 */
+      .info-section {
+        width: 20rem; /* w-80 */
+        background: #fcd34d; /* bg-amber-300 */
+        padding: 1.5rem; /* p-6 */
+        border-left: 2px solid #f59e0b; /* border-l-2 border-amber-500 */
+      }
+
+      /* 录制信息卡片 */
+      .info-card {
+        background: #fef3c7; /* bg-amber-200 */
+        border-radius: 0.5rem; /* rounded-lg */
+        padding: 1rem; /* p-4 */
+        margin-bottom: 1.5rem; /* mb-6 */
+      }
+
+      .info-card h3 {
+        font-weight: 700; /* font-bold */
+        color: #000; /* text-black */
+        margin-bottom: 0.75rem; /* mb-3 */
+        font-size: 1rem;
+      }
+
+      .info-item {
+        margin-bottom: 0.5rem; /* space-y-2 */
+        font-size: 0.875rem; /* text-sm */
+        color: #000; /* text-black */
+      }
+
+      .info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-item strong {
+        font-weight: 600;
+      }
+
+      /* 下载选项区域 */
+      .download-section h3 {
+        font-weight: 700; /* font-bold */
+        color: #000; /* text-black */
+        margin-bottom: 0.75rem; /* mb-3 */
+        font-size: 1rem;
+      }
+
+      .download-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; /* space-y-3 */
+      }
+
+      .download-option {
+        width: 100%; /* w-full */
+        background: #fef3c7; /* bg-amber-100 */
+        padding: 0.75rem; /* p-3 */
+        border-radius: 0.5rem; /* rounded-lg */
+        text-align: left;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+      }
+
+      .download-option:hover {
+        background: #fde68a; /* hover:bg-amber-200 */
+      }
+
+      .download-option-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .download-option-text {
+        font-weight: 500; /* font-medium */
+        color: #000; /* text-black */
+      }
+
+      .download-option-size {
+        font-size: 0.875rem; /* text-sm */
+        color: rgba(0, 0, 0, 0.7); /* text-black/70 */
+      }
+
+      /* 操作按钮 */
+      .action-buttons {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: #000; /* bg-black */
+        color: #fff; /* text-white */
+      }
+
+      .btn-primary:hover {
+        background: #1f2937; /* hover:bg-gray-800 */
+      }
+
+      .btn-secondary {
+        background: #fef3c7; /* bg-amber-100 */
+        color: #000; /* text-black */
+        border: 1px solid #f59e0b;
+      }
+
+      .btn-secondary:hover {
+        background: #fde68a; /* hover:bg-amber-200 */
+      }
+
+      .btn-danger {
+        background: #ef4444; /* bg-red-500 */
+        color: #fff;
+      }
+
+      .btn-danger:hover {
+        background: #dc2626; /* hover:bg-red-600 */
+      }
+
+      /* 加载状态 */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+      }
+
+      .loading-spinner {
+        width: 3rem;
+        height: 3rem;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      .loading-text {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* 消息提示 */
+      .message {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .message-success {
+        background: #10b981;
+        color: white;
+      }
+
+      .message-error {
+        background: #ef4444;
+        color: white;
+      }
+
+      /* 视频预览 */
+      .video-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 0.5rem;
+      }
+
+      .video-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 加载状态 -->
+      <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="text-center">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Loading recording information...</div>
+        </div>
+      </div>
+
+      <!-- 左侧预览区域 -->
+      <div class="preview-section">
+        <div class="preview-container">
+          <div id="videoPreview" class="preview-placeholder">
+            <div class="preview-icon">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+              </svg>
+            </div>
+            <p>Recording Preview</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧信息面板 -->
+      <div class="info-section">
+        <!-- 录制信息卡片 -->
+        <div class="info-card">
+          <h3>📊 Recording Info</h3>
+          <div id="recordingInfo">
+            <!-- 录制信息将通过JavaScript动态填充 -->
+          </div>
+        </div>
+
+        <!-- 下载选项 -->
+        <div class="download-section">
+          <h3>🎯 Download Format</h3>
+          <div id="formatOptions" class="download-options">
+            <!-- 格式选项将通过JavaScript动态填充 -->
+          </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-buttons">
+          <button id="downloadBtn" class="btn btn-primary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            Download Now
+          </button>
+          
+          <button id="recordAgainBtn" class="btn btn-secondary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+            </svg>
+            Record Again
+          </button>
+          
+          <button id="deleteBtn" class="btn btn-danger">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            </svg>
+            Delete Recording
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="locales/language-detector.js"></script>
+    <script src="locales/i18n.js"></script>
+    <script src="export-new-extension.js"></script>
+  </body>
+</html>

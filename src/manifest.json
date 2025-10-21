@@ -1,0 +1,84 @@
+{
+    "manifest_version": 3,
+    "name": "ScreenCatch - Professional Screen Recorder",
+    "version": "3.0.2",
+    "description": "Professional screen recording and screenshot tool for content creation and productivity",
+    
+    "permissions": [
+      "activeTab",
+      "tabs",
+      "scripting",
+      "desktopCapture",
+      "storage"
+    ],
+    
+    "background": {
+      "service_worker": "service_worker.js"
+    },
+    
+    "action": {
+      "default_popup": "popup-new-extension.html",
+      "default_title": "ScreenCatch - Professional Screen Recorder",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    
+
+    
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"],
+        "run_at": "document_start"
+      }
+    ],
+    
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+R",
+          "mac": "Command+Shift+R"
+        },
+        "description": "Start audio/video recording"
+      }
+    },
+    
+    "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "icons/*", 
+          "export-new-extension.html",
+          "export-new-extension.js",
+          "recording-control-new-extension.html",
+          "recording-control-new-extension.js",
+          "html2canvas.min.js",
+          "popup-new-extension.html",
+          "popup-new-extension.js",
+          "screenshot-editor-new-extension.html",
+          "screenshot-editor-new-extension.js",
+          "screenshot-module-new-extension.js",
+          "locales/*"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
