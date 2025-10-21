@@ -2,15 +2,15 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v3.0.2-blue)](https://chrome.google.com/webstore)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/screencatch)](https://github.com/yourusername/screencatch)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/screencatch)](https://github.com/yourusername/screencatch/issues)
+[![GitHub stars](https://img.shields.io/github/stars/zuyucool/screencatch)](https://github.com/zuyucool/screencatch)
+[![GitHub issues](https://img.shields.io/github/issues/zuyucool/screencatch)](https://github.com/zuyucool/screencatch/issues)
 
 > 🎬 Professional screen recording and screenshot tool with Canvas optimization technology
 
 ## 🌍 Language / 语言
 
 - [English](#english) | [中文](#中文)
-- [Join our bilingual community](https://discord.gg/screencatch) | [加入我们的双语社区](https://discord.gg/screencatch)
+- [Join our bilingual community](#community) | [加入我们的双语社区](#社区)
 
 ---
 
@@ -47,7 +47,7 @@
 
 #### Installation
 ```bash
-git clone https://github.com/yourusername/screencatch.git
+git clone https://github.com/zuyucool/screencatch.git
 cd screencatch
 # Load unpacked extension in Chrome
 ```
@@ -59,11 +59,11 @@ npm run build
 
 ### 📚 Documentation
 
-- [User Guide](docs/user-guide.md)
-- [Developer Guide](docs/developer-guide.md)
-- [API Reference](docs/api-reference.md)
-- [Canvas Optimization](docs/canvas-optimization.md)
-- [Contributing Guide](CONTRIBUTING.md)
+- [User Guide](docs/user-guide.md) - *Coming Soon*
+- [Developer Guide](docs/developer-guide.md) - *Coming Soon*
+- [API Reference](docs/api-reference.md) - *Coming Soon*
+- [Canvas Optimization](docs/canvas-optimization.md) - ✅ Available
+- [Contributing Guide](CONTRIBUTING.md) - ✅ Available
 
 ### 🤝 Contributing
 
@@ -71,10 +71,10 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### 🌟 Community
 
-- **Discord**: [Join our community](https://discord.gg/screencatch) | [加入我们的社区](https://discord.gg/screencatch)
-- **WeChat**: [Join Chinese community](https://t.me/screencatch_cn) | [加入中文社区](https://t.me/screencatch_cn)
-- **Reddit**: [r/ScreenCatch](https://reddit.com/r/screencatch) | [Reddit社区](https://reddit.com/r/screencatch)
-- **Twitter**: [@ScreenCatchDev](https://twitter.com/screencatchdev) | [Twitter](https://twitter.com/screencatchdev)
+- **Discord**: [Join our community](https://discord.gg/screencatch) - *Coming Soon*
+- **WeChat**: [Join Chinese community](https://t.me/screencatch_cn) - *Coming Soon*
+- **Reddit**: [r/ScreenCatch](https://reddit.com/r/screencatch) - *Coming Soon*
+- **Twitter**: [@ScreenCatchDev](https://twitter.com/screencatchdev) - *Coming Soon*
 
 ### 📄 License
 
@@ -115,7 +115,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 #### 安装
 ```bash
-git clone https://github.com/yourusername/screencatch.git
+git clone https://github.com/zuyucool/screencatch.git
 cd screencatch
 # 在Chrome中加载解压的扩展
 ```
@@ -127,22 +127,22 @@ npm run build
 
 ### 📚 文档
 
-- [用户指南](docs/user-guide-zh.md)
-- [开发者指南](docs/developer-guide-zh.md)
-- [API参考](docs/api-reference-zh.md)
-- [Canvas优化技术](docs/canvas-optimization-zh.md)
-- [贡献指南](CONTRIBUTING-zh.md)
+- [用户指南](docs/user-guide-zh.md) - *即将推出*
+- [开发者指南](docs/developer-guide-zh.md) - *即将推出*
+- [API参考](docs/api-reference-zh.md) - *即将推出*
+- [Canvas优化技术](docs/canvas-optimization-zh.md) - *即将推出*
+- [贡献指南](CONTRIBUTING.md) - ✅ 可用
 
 ### 🤝 贡献
 
-我们欢迎贡献！请查看我们的[贡献指南](CONTRIBUTING-zh.md)了解详情。
+我们欢迎贡献！请查看我们的[贡献指南](CONTRIBUTING.md)了解详情。
 
 ### 🌟 社区
 
-- **Discord**: [加入我们的社区](https://discord.gg/screencatch)
-- **微信群**: [加入中文社区](https://t.me/screencatch_cn)
-- **知乎**: [ScreenCatch专栏](https://zhuanlan.zhihu.com/screencatch)
-- **B站**: [ScreenCatch官方](https://space.bilibili.com/screencatch)
+- **Discord**: [加入我们的社区](https://discord.gg/screencatch) - *即将推出*
+- **微信群**: [加入中文社区](https://t.me/screencatch_cn) - *即将推出*
+- **知乎**: [ScreenCatch专栏](https://zhuanlan.zhihu.com/screencatch) - *即将推出*
+- **B站**: [ScreenCatch官方](https://space.bilibili.com/screencatch) - *即将推出*
 
 ### 📄 许可证
 
@@ -159,7 +159,7 @@ npm run build
 
 ## 🔗 Links
 
-- **Website**: [screencatch.dev](https://screencatch.dev)
-- **Chrome Web Store**: [Install ScreenCatch](https://chrome.google.com/webstore)
-- **Community**: [Join our bilingual community](https://discord.gg/screencatch)
-- **Documentation**: [docs.screencatch.dev](https://docs.screencatch.dev)
+- **GitHub Repository**: [zuyucool/screencatch](https://github.com/zuyucool/screencatch)
+- **Chrome Web Store**: [Install ScreenCatch](https://chrome.google.com/webstore) - *Coming Soon*
+- **Community**: [Join our bilingual community](#community) | [加入我们的双语社区](#社区)
+- **Documentation**: [Canvas Optimization Guide](docs/canvas-optimization.md) - ✅ Available
